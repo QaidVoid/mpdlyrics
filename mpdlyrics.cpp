@@ -35,9 +35,9 @@ std::vector<Lyrics> fetch_lyrics(struct mpd_song *song) {
 
   if (!is) {
     lyrics.push_back(Lyrics {
-      .ms = 0,
-      .lyrics = " "
-    });
+        .ms = 0,
+        .lyrics = " "
+        });
     return lyrics;
   }
 
@@ -54,9 +54,9 @@ std::vector<Lyrics> fetch_lyrics(struct mpd_song *song) {
       int final_ms = min_ms + sec_ms + ms;
 
       lyrics.push_back(Lyrics {
-        .ms =  final_ms,
-        .lyrics =  line.substr(10, line.length() - 10)
-      });
+          .ms =  final_ms,
+          .lyrics =  line.substr(10, line.length() - 10)
+          });
     } catch(...) {
       continue;
     }
@@ -76,10 +76,10 @@ void current_lyrics(struct mpd_connection *conn) {
   std::vector<Lyrics> lyrics;
 
   while (1) {
-		mpd_command_list_begin(conn, true);
-		mpd_send_status(conn);
-		mpd_send_current_song(conn);
-		mpd_command_list_end(conn);
+    mpd_command_list_begin(conn, true);
+    mpd_send_status(conn);
+    mpd_send_current_song(conn);
+    mpd_command_list_end(conn);
 
     status = mpd_recv_status(conn);
 
