@@ -1,5 +1,5 @@
 CFLAGS = -lmpdclient -lstdc++
-CC = clang
+CC = cc
 
 default: all
 
