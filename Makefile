@@ -1,12 +1,13 @@
-CFLAGS = -lmpdclient -lstdc++
-CC = cc
+CFLAGS = -lmpdclient
+CC = g++
+TARGET = mpdlyrics
 
 default: all
 
-all: mpdlyrics
+all: $(TARGET)
 
-mpdlyrics: mpdlyrics.cpp
-	${CC} ${CFLAGS} -o mpdlyrics $<
+$(TARGET): mpdlyrics.cpp
+	${CC} ${CFLAGS} -o $(TARGET) $<
 
 clean:
 	rm -f mpdlyrics
